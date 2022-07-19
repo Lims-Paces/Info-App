@@ -1,0 +1,467 @@
+/* https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_flip_card */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 16px;
+    overflow-x: hidden;
+    color: black;
+}
+
+.container {
+    margin-right: 100px;
+    margin-left: 100px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+
+/* HEADER STYLES */
+
+.nav {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    color: yellowgreen;
+}
+
+a:not(:last-child) {
+    margin-right: 40px;
+}
+
+
+/* HERO SECTION STYLES */
+
+.hero-section {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+.waviy {
+    position: relative;
+    -webkit-box-reflect: below -20px linear-gradient(rgba(133, 9, 9, 0.2) 0%, transparent 40%, transparent 100%);
+    font-size: 60px;
+    text-align: center;
+}
+
+.waviy span {
+    font-family: 'Fira Sans', sans-serif;
+    position: relative;
+    display: inline-block;
+    color: white;
+    animation: waviy 1s infinite;
+    animation-delay: calc(0.1s * var(--i));
+    font-weight: 900;
+}
+
+span.green {
+    color: green;
+}
+
+@keyframes waviy {
+    0%,
+    40%,
+    100% {
+        transform: translateY(0);
+    }
+    20% {
+        transform: translateY(-20px);
+    }
+}
+
+.hero-section h2 {
+    color: white;
+    text-align: center;
+    font-size: 30px;
+}
+
+
+/* TESTIMONIALS STYLES SECTION */
+
+.testimonials {
+    background-color: white;
+    overflow-x: hidden;
+}
+
+.header-links a::before {
+    content: '';
+    display: block;
+    position: absolute;
+    height: 5px;
+    left: 0;
+    right: 0;
+    bottom: -30px;
+    background: linear-gradient(to right, var(--limeGreen), var(--brightCyan));
+    opacity: 0;
+    transition: opacity 300ms ease-in-out;
+}
+
+.category-one .reveal {
+    position: relative;
+    opacity: 0;
+    padding-top: 100px;
+}
+
+.reveal {
+    position: relative;
+    opacity: 0;
+}
+
+.reveal.active {
+    opacity: 1;
+}
+
+.active.fade-bottom {
+    animation: fade-bottom 1s ease-in;
+}
+
+.active.fade-left {
+    animation: fade-left 1s ease-in;
+}
+
+.active.fade-right {
+    animation: fade-right 1s ease-in;
+}
+
+@keyframes fade-bottom {
+    0% {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fade-left {
+    0% {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fade-right {
+    0% {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.testimonials .testimonial-background {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 50px 0px;
+}
+
+.testimonial-title {
+    font-size: 25px;
+    font-weight: 100;
+    position: relative;
+}
+
+.testimonial-title::before {
+    content: '';
+    display: block;
+    position: absolute;
+    height: 5px;
+    width: 280px;
+    left: 0;
+    right: 0;
+    bottom: -30px;
+    background: linear-gradient(to right, green, yellowgreen);
+    transition: opacity 300ms ease-in-out;
+}
+
+.testimonial-info {
+    text-align: center;
+    color: black;
+    border-radius: 0.3125rem;
+    overflow: hidden;
+    transition: all 150ms ease-in-out;
+}
+
+.testimonial-info:hover {
+    transform: scale(1.05);
+}
+
+.testimonial-image {
+    height: 12.5rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.testimonial-story {
+    padding: 30px 30px;
+    color: var(--grayishBlue);
+    font-size: 0.8125rem;
+}
+
+
+/* JOIN US SECTION STYLES */
+
+.join-us {
+    background-color: black;
+    color: white;
+    height: 100vh;
+}
+
+.join-us-text {
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+.join-us h1 {
+    font-size: 5rem;
+    font-weight: 900;
+    text-align: center;
+}
+
+.join-us p {
+    font-size: 25px;
+    padding-top: 10px;
+    padding-bottom: 40px;
+    letter-spacing: 2px;
+}
+
+.button {
+    display: inline-block;
+    padding: 0.875rem 2.1875rem;
+    background: linear-gradient(to right, limegreen, green);
+    border: 0;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 20px;
+    color: white;
+    transition: opacity 300ms ease-in-out;
+}
+
+.button:hover {
+    opacity: 0.75;
+    background: transparent;
+    border: 1px solid green;
+    color: green;
+}
+
+
+/* FOOTER */
+
+footer {
+    background-color: white;
+}
+
+.info-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 50px;
+    padding-top: 50px;
+}
+
+.info-footer a {
+    color: black;
+}
+
+
+/* MEDIA QUERIES */
+
+@media (max-width: 450px) {
+    a:hover {
+        color: green;
+    }
+    .container {
+        margin: 0 10px;
+    }
+    header a {
+        margin-left: 10px;
+    }
+    .header-hero .menu {
+        display: none;
+    }
+    .waviy {
+        font-size: 40px;
+    }
+    .hero-section h2 {
+        font-size: 30px;
+    }
+    .testimonials .testimonial-background {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .testimonial-title {
+        text-align: center;
+    }
+    .testimonial-title::before {
+        display: none;
+    }
+    .join-us h1 {
+        font-size: 4rem;
+        font-weight: 400;
+        margin: 0 10px;
+    }
+    .join-us p {
+        line-height: 2;
+    }
+    /* FOOTER */
+    .info-footer {
+        display: grid;
+        grid-template-columns: 1fr;
+        margin-left: 200px;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        margin: 0 10px;
+    }
+    header a {
+        margin-left: 10px;
+    }
+    .header-hero .menu {
+        display: none;
+    }
+    .waviy {
+        font-size: 40px;
+    }
+    .hero-section h2 {
+        font-size: 30px;
+    }
+    .testimonials .testimonial-background {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .testimonial-title {
+        text-align: center;
+    }
+    .testimonial-title::before {
+        display: none;
+    }
+    .join-us h1 {
+        font-size: 4rem;
+        font-weight: 400;
+    }
+    .join-us p {
+        line-height: 2;
+    }
+    /* FOOTER */
+    .info-footer a {
+        display: none;
+    }
+    .info-footer img {
+        margin-left: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        margin: 0 10px;
+    }
+    header a {
+        margin-left: 10px;
+    }
+    .header-hero .menu {
+        display: none;
+    }
+    .waviy {
+        font-size: 40px;
+    }
+    .hero-section h2 {
+        font-size: 30px;
+    }
+    .testimonials .testimonial-background {
+        display: grid;
+        grid-template-columns: 2fr;
+    }
+    .testimonial-title {
+        text-align: center;
+    }
+    .testimonial-title::before {
+        display: none;
+    }
+    .join-us h1 {
+        font-size: 4rem;
+        font-weight: 400;
+    }
+    .join-us p {
+        line-height: 2;
+    }
+    /* FOOTER */
+    .info-footer a {
+        display: none;
+    }
+    .info-footer img {
+        margin-left: 100px;
+    }
+}
+
+@media (max-width: 992px) {
+    .container {
+        margin: 0 10px;
+    }
+    header a {
+        margin-left: 10px;
+    }
+    .header-hero .menu {
+        display: none;
+    }
+    .waviy {
+        font-size: 50px;
+    }
+    .hero-section h2 {
+        font-size: 30px;
+    }
+    .testimonials .testimonial-background {
+        display: grid;
+        grid-template-columns: 2fr;
+    }
+    .testimonial-title {
+        text-align: center;
+    }
+    .testimonial-title::before {
+        display: none;
+    }
+    .join-us h1 {
+        font-size: 5rem;
+        font-weight: 400;
+    }
+    .join-us p {
+        line-height: 2;
+    }
+    /* FOOTER */
+    .info-footer a {
+        display: none;
+    }
+    .info-footer img {
+        margin-left: 100px;
+    }
+}
